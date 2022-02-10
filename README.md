@@ -1,24 +1,22 @@
-# Lumen PHP Framework
+# PHP Lumen Framework code analyzer
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+## Prerequisites
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+[Docker](https://www.docker.com/products/docker-desktop)
 
-## Official Documentation
+[Minikube](https://minikube.sigs.k8s.io/docs/start/) or Enable Kubernetes in your Docker Desktop
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+## Installation
+```bash
+# Clone project
+git clone https://github.com/riceberrypi/lumen_api_basic.git
+cd <PROJECT_DIRECTORY>
 
-## Contributing
+# Launch deployment.yml
+kubectl apply -f ./k8s
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# To check the logs, execute the following commands
+kubectl get pods -n code-analyzer
+# Pod name will be displayed. For example: lumen-api-code-analyzer-5f9dd959f5-5v8pm
+kubectl logs -f <pod_name> -n code-analyzer
+```

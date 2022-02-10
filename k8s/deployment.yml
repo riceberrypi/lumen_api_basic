@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: code-analyzer
+  labels:
+    name: code-analyzer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lumen-api-code-analyzer
+  namespace: code-analyzer
+spec:
+  selector:
+    matchLabels:
+      app: lumen-api-code-analyzer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lumen-api-code-analyzer
+    spec:
+      containers:
+      - name: lumen-api-code-analyzer
+        imagePullPolicy: Always
+        image: georgelouis01/lumen-api-analyzer:latest
