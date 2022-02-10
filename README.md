@@ -19,4 +19,7 @@ kubectl apply -f ./k8s
 kubectl get pods -n code-analyzer
 # Pod name will be displayed. For example: lumen-api-code-analyzer-5f9dd959f5-5v8pm
 kubectl logs -f <pod_name> -n code-analyzer
+
+# Deployment teardown
+kubectl delete -f ./k8s
 ```
